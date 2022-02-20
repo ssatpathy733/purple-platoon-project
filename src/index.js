@@ -41,6 +41,8 @@ window.onload = function() {
     window.addEventListener("resize", resize, false);
 }
  
+play(); 
+
 // playGame scene
 class playGame extends Phaser.Scene{
     constructor(){
