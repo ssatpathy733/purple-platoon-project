@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import logoImg from "./assets/logo.png";
 import sprite from "./assets/frame_00001.png"
 import jumpSprite from "./assets/frame_jump.png"
-import platformSprite from "./assets/platform.png"
+import platformSprite from "./assets/platform.jpg"
 
 let game;
  
@@ -52,7 +52,7 @@ class playGame extends Phaser.Scene{
         super("PlayGame");
     }
     preload(){
-        this.load.image("platform", sprite);
+        this.load.image("platform", platformSprite);
         this.load.image("player", sprite);
     }
     create(){
