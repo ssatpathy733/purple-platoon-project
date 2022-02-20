@@ -1,4 +1,6 @@
-# purple-platoon-project
- Blueprint 2022
+# Project Purple Platoon
+***
+Blueprint 2022 Hackathon Submission.
 An infinte runner. 
-erol was here
+***
+Catherine, Erol, Jae, and Phu were here.

@@ -3,7 +3,7 @@ import logoImg from "./assets/logo.png";
 
 let game;
  
-// global game options
+// game options
 let gameOptions = {
     platformStartSpeed: 350,
     spawnRange: [100, 350],
@@ -13,10 +13,16 @@ let gameOptions = {
     playerStartPosition: 200,
     jumps: 2
 }
- 
+
+function play() {
+    var audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
+    audio.play();
+    audio.loop = true; 
+  }
+
 window.onload = function() {
  
-    // object containing configuration options
+    // configuration
     let gameConfig = {
         type: Phaser.AUTO,
         width: 1334,
@@ -24,7 +30,7 @@ window.onload = function() {
         scene: playGame,
         backgroundColor: 0xAA336A,
  
-        // physics settings
+        // physics
         physics: {
             default: "arcade"
         }
@@ -35,6 +41,8 @@ window.onload = function() {
     window.addEventListener("resize", resize, false);
 }
  
+play(); 
+
 // playGame scene
 class playGame extends Phaser.Scene{
     constructor(){
@@ -64,24 +72,24 @@ class playGame extends Phaser.Scene{
             }
         });
  
-        // number of consecutive jumps made by the player
+        // number of consecutive jumps
         this.playerJumps = 0;
  
-        // adding a platform to the game, the arguments are platform width and x position
+        // the platform
         this.addPlatform(game.config.width, game.config.width / 2);
  
-        // adding the player;
+        // the player;
         this.player = this.physics.add.sprite(gameOptions.playerStartPosition, game.config.height / 2, "player");
         this.player.setGravityY(gameOptions.playerGravity);
  
-        // setting collisions between the player and the platform group
+        // collisions between player and platform
         this.physics.add.collider(this.player, this.platformGroup);
  
         // checking for input
         this.input.on("pointerdown", this.jump, this);
     }
  
-    // the core of the script: platform are added from the pool or created on the fly
+    // adding platforms
     addPlatform(platformWidth, posX){
         let platform;
         if(this.platformPool.getLength()){
@@ -101,7 +109,7 @@ class playGame extends Phaser.Scene{
         this.nextPlatformDistance = Phaser.Math.Between(gameOptions.spawnRange[0], gameOptions.spawnRange[1]);
     }
  
-    // the player jumps when on the ground, or once in the air as long as there are jumps left and the first jump was on the ground
+    // the player jumpsas long as there are jumps left and the first jump was on the ground
     jump(){
         if(this.player.body.touching.down || (this.playerJumps > 0 && this.playerJumps < gameOptions.jumps)){
             if(this.player.body.touching.down){
