@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import logoImg from "./assets/logo.png";
 import sprite from "./assets/frame_00001.png"
 import jumpSprite from "./assets/frame_jump.png"
-//import platformSprite from "./assets/platform.jpg"
+import platformSprite from "./assets/platform.jpg"
 
 let game;
  
@@ -17,17 +17,7 @@ let gameOptions = {
     jumps: 2
 }
 
-function play() {
-    let audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
-    audio.play();
-    audio.loop = true; 
-  }
-  
-
 window.onload = function() {
-    var audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
-    audio.play(); 
-    audio.loop() = true;
     // configuration
     let gameConfig = {
         type: Phaser.AUTO,
@@ -46,8 +36,6 @@ window.onload = function() {
     resize();
     window.addEventListener("resize", resize, false);
 }
- 
-play(); 
 
 // playGame scene
 class playGame extends Phaser.Scene{
