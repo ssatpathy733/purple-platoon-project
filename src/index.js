@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import logoImg from './assets/logo.png';
+import logoImg from "./assets/logo.png";
 
 let game;
  
@@ -22,7 +22,7 @@ window.onload = function() {
         width: 1334,
         height: 750,
         scene: playGame,
-        backgroundColor: 0x444444,
+        backgroundColor: 0xAA336A,
  
         // physics settings
         physics: {
