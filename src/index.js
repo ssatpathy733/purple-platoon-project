@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import logoImg from "./assets/logo.png";
 import sprite from "./assets/frame_00001.png"
 import jumpSprite from "./assets/frame_jump.png"
+import platformSprite from "./assets/platform.png"
 
 let game;
  
@@ -30,7 +31,7 @@ window.onload = function() {
         width: 1334,
         height: 750,
         scene: playGame,
-        backgroundColor: 0xAA336A,
+        backgroundColor: 0x193226,
  
         // physics
         physics: {
@@ -51,7 +52,7 @@ class playGame extends Phaser.Scene{
         super("PlayGame");
     }
     preload(){
-        this.load.image("platform", "platform.png");
+        this.load.image("platform", sprite);
         this.load.image("player", sprite);
     }
     create(){
