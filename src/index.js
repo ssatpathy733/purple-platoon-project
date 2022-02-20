@@ -15,7 +15,7 @@ let gameOptions = {
 }
 
 function play() {
-    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
+    var audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
     audio.play();
     audio.loop = true; 
   }
