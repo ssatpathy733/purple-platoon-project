@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import logoImg from "./assets/logo.png";
+import sprite from "./assets/frame_00001.png"
+import jumpSprite from "./assets/frame_jump.png"
 
 let game;
  
 // game options
 let gameOptions = {
     platformStartSpeed: 350,
-    spawnRange: [100, 350],
+    spawnRange: [200, 500],
     platformSizeRange: [50, 250],
     playerGravity: 900,
     jumpForce: 400,
@@ -15,7 +17,7 @@ let gameOptions = {
 }
 
 function play() {
-    var audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
+    let audio = new Audio('https://github.com/ssatpathy733/purple-platoon-project/blob/main/src/assets/purple%20platoon.mp3');
     audio.play();
     audio.loop = true; 
   }
@@ -50,7 +52,7 @@ class playGame extends Phaser.Scene{
     }
     preload(){
         this.load.image("platform", "platform.png");
-        this.load.image("player", "player.png");
+        this.load.image("player", sprite);
     }
     create(){
  
@@ -74,7 +76,7 @@ class playGame extends Phaser.Scene{
  
         // number of consecutive jumps
         this.playerJumps = 0;
- 
+
         // the platform
         this.addPlatform(game.config.width, game.config.width / 2);
  
@@ -87,6 +89,8 @@ class playGame extends Phaser.Scene{
  
         // checking for input
         this.input.on("pointerdown", this.jump, this);
+
+        this.player.setScale(0.2);
     }
  
     // adding platforms
@@ -120,7 +124,6 @@ class playGame extends Phaser.Scene{
         }
     }
     update(){
- 
         // game over
         if(this.player.y > game.config.height){
             this.scene.start("PlayGame");
