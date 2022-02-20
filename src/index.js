@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import logoImg from "./assets/logo.png";
 import sprite from "./assets/frame_00001.png"
 import jumpSprite from "./assets/frame_jump.png"
-import platformSprite from "./assets/platform.jpg"
+//import platformSprite from "./assets/platform.jpg"
 
 let game;
  
